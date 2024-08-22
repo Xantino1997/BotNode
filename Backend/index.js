@@ -12,6 +12,13 @@ const path = require("path");
 // Intervalo para revisar la inactividad cada minuto
 setInterval(checkInactivity, 60 * 1000);
 
+const sessionDir = path.join(__dirname, '.wwebjs_auth');
+
+// Crear la carpeta si no existe
+if (!fs.existsSync(sessionDir)) {
+    fs.mkdirSync(sessionDir, { recursive: true });
+    console.log('Carpeta .wwebjs creada:', sessionDir);
+}
 
 const credentialsPath = path.join(__dirname, "credentialsJSON.json");
 
@@ -42,7 +49,6 @@ const wwebVersion = "2.2412.54";
 const client = new Client({
   authStrategy: new LocalAuth({
     clientId: "client-one",
-    dataPath: path.join(__dirname, 'custom_auth_directory')
   }),
   puppeteer: {
     args: ["--no-sandbox"],
