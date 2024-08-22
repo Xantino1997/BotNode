@@ -618,7 +618,6 @@ const SHEET_NAME = "Hoja 1";
 app.use(express.static("public"));
 
 let botIniciado = false;
-app.use(express.urlencoded({ extended: false }));
 
 // Home route
 app.get("/", (req, res) => {
