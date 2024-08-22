@@ -6,7 +6,6 @@ const fs = require("fs");
 require('dotenv').config();
 // Cargar credenciales de Google
 
-const credentialsJSON = process.env.CREDENTIALS
 
 const { MessageMedia } = require("whatsapp-web.js");
 const path = require("path");
@@ -619,6 +618,12 @@ const SHEET_NAME = "Hoja 1";
 app.use(express.static("public"));
 
 let botIniciado = false;
+app.use(express.urlencoded({ extended: false }));
+
+// Home route
+app.get("/", (req, res) => {
+  res.send("Welcome to a basic express App again");
+});
 
 // Endpoint para iniciar el bot
 app.get("/api/bot-status", (req, res) => {
