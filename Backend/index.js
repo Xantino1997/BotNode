@@ -14,7 +14,7 @@ const path = require("path");
 setInterval(checkInactivity, 60 * 1000);
 
 
-const credentialsPath = path.join(__dirname, credentialsJSON);
+const credentialsPath = path.join(__dirname, "credentialsJSON");
 
 // Leer y parsear el archivo de credenciales
 const CREDENTIALS = JSON.parse(fs.readFileSync(credentialsPath, 'utf8'));
